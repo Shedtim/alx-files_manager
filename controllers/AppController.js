@@ -13,4 +13,7 @@ async function getStats(req, res) {
   res.status(200).json({ users: userCount, files: filesCount });
 }
 
-module.exports = [getStats, getStatus];
+module.exports = {
+  getStats,
+  getStatus,
+};
