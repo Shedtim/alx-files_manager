@@ -1,15 +1,9 @@
-import { createClient } from 'redis';
-
+const redis = require('redis');
 const { promisify } = require('util');
 
 class RedisClient {
   constructor() {
-    this.client = createClient({
-      host: 'localhost',
-      port: 6379,
-    }).on('error', (err) => {
-      console.log(err);
-    });
+    this.client = redis.createClient().on('error', (error) => console.log(error));
   }
 
   isAlive() {
